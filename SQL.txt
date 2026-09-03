@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS Biblioteca CHARACTER SET utf8mb4;
+CREATE USER IF NOT EXISTS 'aluno_cd'@'localhost' IDENTIFIED BY 'aluno_pw';
+GRANT ALL PRIVILEGES ON Biblioteca.* TO 'aluno_cd'@'localhost';
+FLUSH PRIVILEGES;
+USE Biblioteca;
+CREATE TABLE IF NOT EXISTS livro (
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ nome VARCHAR(60) NOT NULL,
+ autor VARCHAR(60) NOT NULL,
+ paginas INT,
+ copias INT
+);
