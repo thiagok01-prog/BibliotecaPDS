@@ -33,7 +33,7 @@ public class LivroRepositorioBD {
  throw new IllegalArgumentException(problema);
  }
  // 2. a regra que depende dos OUTROS registros
- if (existe(a.getNome(), a.getDono())) {
+ if (existe(a.getNome(), a.getCopias())) {
  throw new IllegalArgumentException(
  "Ja existe um livro com este nome.");
  }
@@ -52,12 +52,12 @@ public class LivroRepositorioBD {
 	 throw new RuntimeException("Erro ao gravar: " + erro.getMessage(), erro);
 	 }
 	 }
-	 public boolean existe(String nome, String nome1) {
+	 public boolean existe(String nome, int i) {
 	 String sql = "SELECT id FROM livro WHERE nome = ? AND dono = ?";
 	 try (Connection con = abrir();
 	 PreparedStatement ps = con.prepareStatement(sql)) {
 	 ps.setString(1, nome.trim());
-	 ps.setString(2, nome1.trim());
+	 ps.setInt(2, i);
 	 try (ResultSet rs = ps.executeQuery()) {
 	 return rs.next(); // achou pelo menos uma linha?
 	 }

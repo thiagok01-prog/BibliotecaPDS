@@ -12,10 +12,10 @@ public class LivroRepositorio {
 		 throw new IllegalArgumentException(problema);
 		 }
 		 // 2. a regra que depende dos OUTROS registros
-		 if ((a.getNome(), a.getNome())) {
-		 throw new IllegalArgumentException(
-		 "Ja tem um livro com este nome.");
-		 }
+		 //if ((a.getNome() == a.)) {
+		 //throw new IllegalArgumentException(
+		 //"Ja tem um livro com este nome.");
+		 //}
 		 // 3. so agora grava: valide antes de alterar o estado
 		 livros.add(a);
 		 }
