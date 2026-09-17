@@ -38,15 +38,15 @@ public class LivroRepositorioBD {
  "Ja existe um livro com este nome.");
  }
  String sql = "INSERT INTO livro (nome, autor, paginas, copias) VALUES (?, ?, ?, ?)";
- try (Connection con = abrir()
+ try (Connection con = abrir();
  PreparedStatement ps = con.prepareStatement(sql)) {
 	 // Um set por campo, na ORDEM das colunas do INSERT.
 	 // Indices comecam em 1. O tipo do set combina com o tipo do
 	 // atributo: setString para texto, setDouble para decimal.
 	 ps.setString(1, a.getNome().trim());
-	 ps.setString(2, a.getEspecie().trim());
-	 ps.setDouble(3, a.getPeso());
-	 ps.setString(4, a.getDono().trim());
+	 ps.setString(2, a.getAutor().trim());
+	 ps.setInt(3, a.getPaginas());
+	 ps.setInt(4, a.getCopias());
 	 ps.executeUpdate();
 	 } catch (SQLException erro) {
 	 throw new RuntimeException("Erro ao gravar: " + erro.getMessage(), erro);
