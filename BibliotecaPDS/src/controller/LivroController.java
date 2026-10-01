@@ -38,21 +38,30 @@ public class LivroController implements ActionListener {
  // tela - por isso este try/catch fica aqui, e nao no Model.
  // O replace resolve o detalhe brasileiro: digitamos 12,5 e o Java
  // so entende 12.5.
- int paginas;
- try {
- paginas = Integer.parseInt(
- this.view.getTxtPaginas().getText().trim().replace(",", "."));
- } catch (NumberFormatException erro) {
- this.view.mostrarErro("As paginas devem ser um numero.");
- return;
- }
+	 int paginas;
+	 try {
+	     // Para inteiros, apenas limpamos os espaços em branco
+	     paginas = Integer.parseInt(this.view.getTxtPaginas().getText().trim());
+	 } catch (NumberFormatException erro) {
+	     this.view.mostrarErro("As páginas devem ser um número inteiro válido.");
+	     return; // Interrompe a execução
+	 }
+
+	 int copias;
+	 try {
+	     // Corrigido: Removido o replace desnecessário para números inteiros
+	     copias = Integer.parseInt(this.view.getCopias().getText().trim()); 
+	 } catch (NumberFormatException erro) {
+	     this.view.mostrarErro("As cópias devem ser um número inteiro válido.");
+	     return;
+	 }
  // Objeto NOVO a cada cadastro: reaproveitar um unico faria o
  // segundo sobrescrever o primeiro.
  Livro livro = new Livro();
  livro.setNome(this.view.getTxtNome().getText());
  livro.setAutor(this.view.getTxtAutor().getText());
  livro.setPaginas(Integer.parseInt(this.view.getTxtPaginas().getText()));  //livro.setPaginas(Integer.parseInt(Paginas)); //livro.setPaginas(Paginas);
- //livro.setCopias(Integer.parseInt(this.view.getTxtCopias().getText()));
+ livro.setCopias(Integer.parseInt(this.view.getCopias().getText()));
  //livro.setCopias(Integer.parseInt(Copias)); //livro.setCopias(Copias);
  try {
  this.repositorio.salvar(livro);

@@ -59,9 +59,10 @@ public class JanelaLivro extends JFrame {
  JLabel lblCopias = new JLabel("Copias");
  lblCopias.setBounds(10, 138, 80, 14);
  contentPane.add(lblCopias);
- txtPaginas = new JTextField();
- txtPaginas.setBounds(110, 135, 110, 20);
- contentPane.add(txtCopias);
+ 
+ txtCopias = new JTextField(); // CORREÇÃO: Agora instanciando a variável certa
+ txtCopias.setBounds(110, 135, 110, 20);
+ contentPane.add(txtCopias);    // Agora vai funcionar perfeitamente!
  // 105 px: com menos, o texto "Cadastrar" sai cortado.
  btnCadastrar = new JButton("Cadastrar");
  btnCadastrar.setBounds(250, 17, 105, 22);

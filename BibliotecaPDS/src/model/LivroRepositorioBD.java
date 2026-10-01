@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class LivroRepositorioBD {
  // Os tres dados da conexao num lugar so.
- private static final String URL = "jdbc:mysql://localhost:3306/meusistema";
+ private static final String URL = "jdbc:mysql://localhost:3306/biblioteca";
  private static final String USER = "aluno_cd";
  private static final String SENHA = "aluno_pw";
  // Conexao NOVA a cada chamada. Uma conexao guardada em atributo e
@@ -53,7 +53,7 @@ public class LivroRepositorioBD {
 	 }
 	 }
 	 public boolean existe(String nome, int i) {
-	 String sql = "SELECT id FROM livro WHERE nome = ? AND dono = ?";
+	 String sql = "SELECT id FROM livro WHERE nome = ? AND autor = ?";
 	 try (Connection con = abrir();
 	 PreparedStatement ps = con.prepareStatement(sql)) {
 	 ps.setString(1, nome.trim());
@@ -67,7 +67,7 @@ public class LivroRepositorioBD {
 	 }
 	 }
 	 public List<Livro> listarTodos() {
-	 String sql = "SELECT nome, especie, peso, dono FROM animal ORDER BY nome";
+	 String sql = "SELECT nome, autor, paginas, copipas FROM livro ORDER BY nome";
 	 List<Livro> lista = new ArrayList<>();
 	 try (Connection con = abrir();
 	 PreparedStatement ps = con.prepareStatement(sql);
