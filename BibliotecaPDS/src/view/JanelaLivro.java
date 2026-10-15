@@ -27,13 +27,13 @@ public class JanelaLivro extends JFrame {
  private JPanel panel;
  private JPanel panel_1;
  private JLabel lblNome;
- private JTextField textField;
+ private JTextField txtNome;
  private JLabel lblAutor;
- private JTextField textField_1;
+ private JTextField txtAutor;
  private JLabel lblPaginas;
- private JTextField textField_2;
+ private JTextField txtPaginas;
  private JLabel lblCopias;
- private JTextField textField_3;
+ private JTextField txtCopias;
  private JButton btnCadastrar;
  private JButton btnLimpar;
  private JButton btnFechar;
@@ -62,14 +62,14 @@ public class JanelaLivro extends JFrame {
  gbc_lblNome.gridy = 0;
  panel.add(lblNome, gbc_lblNome);
  
- textField = new JTextField();
- GridBagConstraints gbc_textField = new GridBagConstraints();
- gbc_textField.weightx = 1.0;
- gbc_textField.insets = new Insets(0, 0, 5, 0);
- gbc_textField.fill = GridBagConstraints.HORIZONTAL;
- gbc_textField.gridx = 0;
- gbc_textField.gridy = 1;
- panel.add(textField, gbc_textField);
+ txtNome = new JTextField();
+ GridBagConstraints gbc_txtNome = new GridBagConstraints();
+ gbc_txtNome.weightx = 1.0;
+ gbc_txtNome.insets = new Insets(0, 0, 5, 0);
+ gbc_txtNome.fill = GridBagConstraints.HORIZONTAL;
+ gbc_txtNome.gridx = 0;
+ gbc_txtNome.gridy = 1;
+ panel.add(txtNome, gbc_txtNome);
  
  lblAutor = new JLabel("Autor");
  GridBagConstraints gbc_lblAutor = new GridBagConstraints();
@@ -78,14 +78,14 @@ public class JanelaLivro extends JFrame {
  gbc_lblAutor.gridy = 2;
  panel.add(lblAutor, gbc_lblAutor);
  
- textField_1 = new JTextField();
- GridBagConstraints gbc_textField_1 = new GridBagConstraints();
- gbc_textField_1.weightx = 1.0;
- gbc_textField_1.insets = new Insets(0, 0, 5, 0);
- gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
- gbc_textField_1.gridx = 0;
- gbc_textField_1.gridy = 3;
- panel.add(textField_1, gbc_textField_1);
+ txtAutor = new JTextField();
+ GridBagConstraints gbc_txtAutor = new GridBagConstraints();
+ gbc_txtAutor.weightx = 1.0;
+ gbc_txtAutor.insets = new Insets(0, 0, 5, 0);
+ gbc_txtAutor.fill = GridBagConstraints.HORIZONTAL;
+ gbc_txtAutor.gridx = 0;
+ gbc_txtAutor.gridy = 3;
+ panel.add(txtAutor, gbc_txtAutor);
  
  lblPaginas = new JLabel("Paginas");
  GridBagConstraints gbc_lblPaginas = new GridBagConstraints();
@@ -94,14 +94,14 @@ public class JanelaLivro extends JFrame {
  gbc_lblPaginas.gridy = 4;
  panel.add(lblPaginas, gbc_lblPaginas);
  
- textField_2 = new JTextField();
- GridBagConstraints gbc_textField_2 = new GridBagConstraints();
- gbc_textField_2.weightx = 1.0;
- gbc_textField_2.insets = new Insets(0, 0, 5, 0);
- gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
- gbc_textField_2.gridx = 0;
- gbc_textField_2.gridy = 5;
- panel.add(textField_2, gbc_textField_2);
+ txtPaginas = new JTextField();
+ GridBagConstraints gbc_txtPaginas = new GridBagConstraints();
+ gbc_txtPaginas.weightx = 1.0;
+ gbc_txtPaginas.insets = new Insets(0, 0, 5, 0);
+ gbc_txtPaginas.fill = GridBagConstraints.HORIZONTAL;
+ gbc_txtPaginas.gridx = 0;
+ gbc_txtPaginas.gridy = 5;
+ panel.add(txtPaginas, gbc_txtPaginas);
  
  lblCopias = new JLabel("Copias");
  GridBagConstraints gbc_lblCopias = new GridBagConstraints();
@@ -110,13 +110,13 @@ public class JanelaLivro extends JFrame {
  gbc_lblCopias.gridy = 6;
  panel.add(lblCopias, gbc_lblCopias);
  
- textField_3 = new JTextField();
- GridBagConstraints gbc_textField_3 = new GridBagConstraints();
- gbc_textField_3.weightx = 1.0;
- gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
- gbc_textField_3.gridx = 0;
- gbc_textField_3.gridy = 7;
- panel.add(textField_3, gbc_textField_3);
+ txtCopias = new JTextField();
+ GridBagConstraints gbc_txtCopias = new GridBagConstraints();
+ gbc_txtCopias.weightx = 1.0;
+ gbc_txtCopias.fill = GridBagConstraints.HORIZONTAL;
+ gbc_txtCopias.gridx = 0;
+ gbc_txtCopias.gridy = 7;
+ panel.add(txtCopias, gbc_txtCopias);
  
  panel_1 = new JPanel();
  contentPane.add(panel_1, BorderLayout.EAST);

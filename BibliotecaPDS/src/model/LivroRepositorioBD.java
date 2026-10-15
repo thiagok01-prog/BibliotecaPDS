@@ -67,7 +67,7 @@ public class LivroRepositorioBD {
 	 }
 	 }
 	 public List<Livro> listarTodos() {
-	 String sql = "SELECT nome, autor, paginas, copipas FROM livro ORDER BY nome";
+	 String sql = "SELECT nome, autor, paginas, copias FROM livro ORDER BY nome";
 	 List<Livro> lista = new ArrayList<>();
 	 try (Connection con = abrir();
 	 PreparedStatement ps = con.prepareStatement(sql);
