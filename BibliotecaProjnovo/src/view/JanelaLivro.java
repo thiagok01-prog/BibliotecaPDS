@@ -14,6 +14,11 @@ import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class JanelaLivro extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -34,16 +39,58 @@ public class JanelaLivro extends JFrame {
     
     private JTable tabelaLivros;
     private DefaultTableModel modeloTabela;
+    
+    /**
+     * Carrega uma imagem de dentro do projeto e ajusta ao tamanho pedido,
+     * mantendo a proporcao. Devolve null se o arquivo nao for encontrado.
+     */
+     private ImageIcon carregarIcone(String caminho, int largura, int altura) {
+     URL url = JanelaLivro.class.getResource(caminho);
+     if (url == null) {
+     System.err.println("Imagem nao encontrada: " + caminho);
+     return null;
+     }
+     ImageIcon original = new ImageIcon(url);
+     double escala = Math.min((double) largura / original.getIconWidth(),
+     (double) altura / original.getIconHeight());
+     int w = (int) (original.getIconWidth() * escala);
+     int h = (int) (original.getIconHeight() * escala);
+     Image reduzida = original.getImage()
+     .getScaledInstance(w, h, Image.SCALE_SMOOTH);
+     return new ImageIcon(reduzida);
+     }
 
     public JanelaLivro() {
         setTitle("Cadastro de Livros - Biblioteca");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 550, 500);
         
+        
+        
+     // icone da janela (barra de titulo e barra de tarefas)
+        ImageIcon icone = carregarIcone("/img/icone.png", 32, 32);
+        if (icone != null) {
+        setIconImage(icone.getImage());
+        }
+        
+     // painel raiz: logo no topo (NORTH) e formulario no centro (CENTER)
+        JPanel raiz = new JPanel(new BorderLayout());
+        setContentPane(raiz);
+        JLabel lblLogo = new JLabel();
+        lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblLogo.setBorder(new EmptyBorder(10, 0, 0, 0));
+        ImageIcon logo = carregarIcone("/img/logo.png", 240, 80);
+        if (logo != null) {
+        lblLogo.setIcon(logo);
+        } else {
+        lblLogo.setText("Cadastro de Estudante");
+        }
+        raiz.add(lblLogo, BorderLayout.NORTH);
+        // o painel do formulario continua igual ao que ja existia
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(new BorderLayout(5, 5));
+        contentPane.setLayout(new BorderLayout(0, 10));
+        raiz.add(contentPane, BorderLayout.CENTER);
         
         panelFormulario = new JPanel();
         contentPane.add(panelFormulario, BorderLayout.NORTH);
